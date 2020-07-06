@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="game.js"></script>
+    <title>MEAN 003 - Interacting</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hundred Acre Wood: Traveling</h1>
+            <div class="row">
+                <div class="col col-sm-4">
+                    <div id="console">
+                        <p style="color: blue;">You are at Tigger's house.</p>
+                    </div>
+                </div>
+                <div class="col col-sm-8">
+                    <img style="width: 550px;" src="hundredacrewood.png" alt="Hundred acre wood">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var me = tigger;
+
+    function move(direction) {
+        let msgDirection = "<p style='color:red;'>You can't travel there!</p>";
+        switch (direction) {
+            case 'left':
+                if (me.west) {
+                    me = me.west;
+                    msgDirection = "West - ";
+                }
+                break;
+
+            case 'right':
+                if (me.east) {
+                    me = me.east;
+                    msgDirection = "East - ";
+                }
+                break;
+
+            case 'up':
+                if (me.north) {
+                    me = me.north;
+                    msgDirection = "North - ";
+                }
+                break;
+
+            case 'down':
+                if (me.south) {
+                    me = me.south;
+                    msgDirection = "West - ";
+                }
+                break;
+        }
+        me.greet();
+        document.getElementById("console").innerHTML = `<p style="color: blue;">${msgDirection}You are at ${me.name}'s house.</p>` + document.getElementById("console").innerHTML;
+    }
+
+    document.onkeydown = function (e) {
+        if (e.keyCode === 37) {
+            move('left');
+        } else if (e.keyCode === 38) {
+            move('up');
+        } else if (e.keyCode === 39) {
+            move('right');
+        } else if (e.keyCode === 40) {
+            move('down');
+        }
+    }
+</script>
+
+</html>
