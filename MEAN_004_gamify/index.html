@@ -29,60 +29,42 @@
 </body>
 <script>
     var me = tigger;
-    var target = [heffalumps, eeyore, kanga, christopher, owl, rabbit, gopher, piglet, pooh]
-
-    function getRandomPos(arr) {
-        var character = arr[Math.floor(Math.random() * Math.floor(arr.length))];
-        console.log(character);
-        return character;
-    }
-
-    myTarget = getRandomPos(target);
-    honey = false;
+    me.honey = false;
 
     function move(direction) {
         let msgDirection = "<p style='color:red;'>You can't travel there!</p>";
         switch (direction) {
-            case 'west':
+            case 'left':
                 if (me.west) {
                     me = me.west;
                     msgDirection = "West - ";
                 }
                 break;
 
-            case 'east':
+            case 'right':
                 if (me.east) {
                     me = me.east;
                     msgDirection = "East - ";
                 }
                 break;
 
-            case 'north':
+            case 'up':
                 if (me.north) {
                     me = me.north;
                     msgDirection = "North - ";
                 }
                 break;
 
-            case 'south':
+            case 'down':
                 if (me.south) {
                     me = me.south;
-                    msgDirection = "South - ";
+                    msgDirection = "West - ";
                 }
                 break;
         }
 
-        if (me.name == "Bees" && me.honey) {
-            honey = true;
-            bees.honey = null;
-            document.getElementById("console").innerHTML = `<p style="color: yellow;">You got the honey!</p>` + document.getElementById("console").innerHTML;
-        }
-
-        console.log(honey);
-        if (me.name == myTarget.name && honey) {
-            myTarget.honey = true;
-            honey = false;
-            document.getElementById("console").innerHTML = `<p style="color: orange;">You delivered the honey to ${myTarget.name}!</p>` + document.getElementById("console").innerHTML;
+        if (me.honey) {
+            console.log("HONEY!");
         }
 
         me.greet();
@@ -91,13 +73,13 @@
 
     document.onkeydown = function (e) {
         if (e.keyCode === 37) {
-            move('west');
+            move('left');
         } else if (e.keyCode === 38) {
-            move('north');
+            move('up');
         } else if (e.keyCode === 39) {
-            move('east');
+            move('right');
         } else if (e.keyCode === 40) {
-            move('south');
+            move('down');
         }
     }
 </script>
