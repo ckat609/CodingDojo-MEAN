@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
         crossorigin="anonymous">
     <script type="text/javascript" src="game.js"></script>
-    <title>MEAN 003 - Interacting</title>
+    <title>MEAN 004 - Gamify</title>
 </head>
 
 <body>
@@ -29,42 +29,60 @@
 </body>
 <script>
     var me = tigger;
-    me.honey = false;
+    var target = [heffalumps, eeyore, kanga, christopher, owl, rabbit, gopher, piglet, pooh]
+
+    function getRandomPos(arr) {
+        var character = arr[Math.floor(Math.random() * Math.floor(arr.length))];
+        console.log(character);
+        return character;
+    }
+
+    myTarget = getRandomPos(target);
+    honey = false;
 
     function move(direction) {
         let msgDirection = "<p style='color:red;'>You can't travel there!</p>";
         switch (direction) {
-            case 'left':
+            case 'west':
                 if (me.west) {
                     me = me.west;
                     msgDirection = "West - ";
                 }
                 break;
 
-            case 'right':
+            case 'east':
                 if (me.east) {
                     me = me.east;
                     msgDirection = "East - ";
                 }
                 break;
 
-            case 'up':
+            case 'north':
                 if (me.north) {
                     me = me.north;
                     msgDirection = "North - ";
                 }
                 break;
 
-            case 'down':
+            case 'south':
                 if (me.south) {
                     me = me.south;
-                    msgDirection = "West - ";
+                    msgDirection = "South - ";
                 }
                 break;
         }
 
-        if (me.honey) {
-            console.log("HONEY!");
+        if (me.name == "Bees" && me.honey) {
+            honey = true;
+            bees.honey = null;
+            document.getElementById("console").innerHTML = `<p style="color: yellow;">You got the honey!</p>` + document.getElementById("console").innerHTML;
+        }
+
+        console.log(honey);
+        if (me.name == myTarget.name && honey) {
+            myTarget.honey = true;
+            honey = false;
+            document.getElementById("console").innerHTML = `<p style="color: orange;">You delivered the honey to ${myTarget.name}!</p>` + document.getElementById("console").innerHTML;
         }
 
         me.greet();
@@ -73,13 +91,13 @@
 
     document.onkeydown = function (e) {
         if (e.keyCode === 37) {
-            move('left');
+            move('west');
         } else if (e.keyCode === 38) {
-            move('up');
+            move('north');
         } else if (e.keyCode === 39) {
-            move('right');
+            move('east');
         } else if (e.keyCode === 40) {
-            move('down');
+            move('south');
         }
     }
 </script>
