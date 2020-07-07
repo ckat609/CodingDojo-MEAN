@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEAN 007: Hunting Github</title>
+</head>
+
+<body>
+    <button id="getName">Click me</button>
+    <ul id="postInfo"></ul>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script>
+    function getGit() {
+        $.get('https://api.github.com/users/ckat609', function (data) {
+            console.log(data)
+            for (var obj in data) {
+                $('#postInfo').append(`<li>${obj} - ${data[obj]}</li>`)
+                console.log(obj)
+            }
+        });
+
+    }
+
+    $('#getName').click(getGit);
+</script>
+
+</html>
