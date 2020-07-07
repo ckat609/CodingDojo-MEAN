@@ -64,7 +64,7 @@ function printUsers(aList) {
         var count = 1;
         console.log(i.toUpperCase());
         for (var j = 0; j < aList[i].length; j++) {
-            console.log(`${count} - ${aList[i][j].first_name}, ${aList[i][j]} - ${aList[i][j].first_name.length + aList[i][j].last_name.length}`);
+            console.log(`${count} - ${aList[i][j].first_name.toUpperCase()}, ${aList[i][j].last_name.toUpperCase()} - ${aList[i][j].first_name.length + aList[i][j].last_name.length}`);
             count++;
         }
     }
