@@ -64,6 +64,12 @@
         document.getElementById("console").innerHTML = `<p style="color: blue;">${msgDirection}You are at ${me.name}'s house.</p>` + document.getElementById("console").innerHTML;
     }
 
+    function chris(dir) {
+        if (dir == 'up') {
+            console.log('up')
+        }
+    }
+
     document.onkeydown = function (e) {
         if (e.keyCode === 37) {
             move('left');
