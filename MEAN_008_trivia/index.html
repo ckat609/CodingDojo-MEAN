@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>MEAN 008: Trivia Night</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="gameboard"></div>
+    </div>
+</body>
+<script>
+    function shuffleAnswers(arr) {
+        var count = 0;
+        var shfArr = [];
+        while (count < 4) {
+            aNum = Math.floor(Math.random() * arr.length);
+            if (!shfArr[aNum]) {
+                shfArr[aNum] = arr[count];
+                count++;
+            }
+        }
+        return shfArr;
+    }
+
+    function drawBoard(questions) {
+        var length = questions.length;
+        var width = 3;
+        var count = 1;
+        var content = "";
+        content += "<table>";
+        for (var i = 0; i < length; i++) {
+            if (count == 1) {
+                content += "<tr>";
+            }
+            content += `<td id="q${i}" class="qBox"><p class="qQuestion">${questions[i].question}</p><form><div class="form-group">`;
+
+            for (let j = 0; j < questions[i].incorrect_answers.length; j++) {
+                arr = questions[i].incorrect_answers;
+            }
+            arr.push(questions[i].correct_answer);
+
+            shfArr = shuffleAnswers(arr);
+            console.log(shfArr.length);
+
+            for (let j = 0; j < shfArr.length; j++) {
+                content +=
+                    `<div class="form-check"><input type="radio" class="form-check-input" name="ans${i}" id="ans${i}${j}" value="${shfArr[j]}"><label class="form-check-label" for="ans${i}${j}">${shfArr[j]}</label></div>`;
+            }
+
+            content += "</div></form></td>"
+
+            if (count == width || i == length) {
+                content += "</tr>"
+                count = 0;
+            }
+            count++;
+        }
+        content += "</table>";
+        $('#gameboard').html(content);
+    }
+
+
+
+    $(document).ready(function () {
+        $.get('https://opentdb.com/api.php?amount=9&category=20&difficulty=easy&type=multiple', function (data) {
+            var questions = data.results;
+            var length = questions.length;
+            var width = 3;
+            var count = 1;
+
+            drawBoard(data.results);
+
+            for (var i = 0; i < length; i++) {
+                for (let j = 0; j < questions[i].incorrect_answers.length; j++) {
+                    arr = questions[i].incorrect_answers;
+                }
+
+                arr.push(questions[i].correct_answer);
+                for (let j = 0; j < arr.length; j++) {
+                    $(`#ans${i}${j}`).click(function () {
+                        console.log($(this).attr('value'));
+                        console.log(questions[i]);
+                    })
+                }
+            }
+        });
+    });
+</script>
+
+</html>
