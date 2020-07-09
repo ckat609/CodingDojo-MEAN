@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEAN 009: Ninja Class I</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var Ninja = function (name) {
+        var self = this;
+        self.name = name;
+        self.speed = 3;
+        self.strength = 3;
+        self.health = 100;
+
+        self.sayName = function () {
+            console.log(`My ninja name is ${self.name}!`);
+            return self;
+        }
+
+        self.showStats = function () {
+            console.log(`Name: ${self.name}`);
+            console.log(`Strength: ${self.strength}`);
+            console.log(`Speed: ${self.speed}`);
+            console.log(`Health: ${self.health}`);
+            return self;
+        }
+
+        self.drinkSnake = function () {
+            self.health += 10;
+            return self;
+        }
+
+        self.punch = function (ninja) {
+            if (ninja instanceof Ninja) {
+                ninja.health -= 5;
+                return self;
+            } else {
+                console.log(`${ninja} is not an instance of Ninja`)
+            }
+        }
+
+        self.kick = function (ninja) {
+            if (ninja instanceof Ninja) {
+                ninja.health -= (15 * self.strength);
+                return self;
+            } else {
+                console.log(`${ninja} is not an instance of Ninja`)
+            }
+        }
+    }
+
+    bob = new Ninja("Bob");
+    bob.sayName();
+    bob.showStats();
+    bob.drinkSnake();
+    bob.showStats();
+
+    carl = new Ninja("Carl");
+    bob.punch(carl).punch(carl).punch(carl).kick(carl);
+    carl.showStats();
+
+    sup = 55;
+    carl.kick(sup);
+</script>
+
+</html>
