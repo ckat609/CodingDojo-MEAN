@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEAN 009: Ninja Class I</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Ninja {
+        constructor(name) {
+            this.name = name;
+            this.health = 100;
+            this.speed = 3;
+            this.strength = 3;
+        }
+
+        sayName() {
+            console.log(`My name is ${this.name}`)
+        }
+
+        showStats() {
+            console.log(`Name: ${this.name}`);
+            console.log(`Strength: ${this.strength}`);
+            console.log(`Speed: ${this.speed}`);
+            console.log(`Health: ${this.health}`);
+            return this;
+        }
+
+        drinkSake() {
+            this.health += 10;
+            return this;
+        }
+
+        punch(ninja) {
+            if (ninja instanceof Ninja) {
+                ninja.health -= 5;
+                return this;
+            } else {
+                console.log(`${ninja} is not an instance of Ninja`)
+            }
+            return this
+        }
+
+        kick(ninja) {
+            if (ninja instanceof Ninja) {
+                ninja.health -= (15 * this.strength);
+                return this;
+            } else {
+                console.log(`${ninja} is not an instance of Ninja`)
+            }
+            return this;
+        }
+    }
+
+    class Sensei extends Ninja {
+        constructor(name) {
+            super(name);
+            super.strength = 10;
+            super.speed = 10;
+            super.health = 200;
+            this.wisdom = 10;
+        }
+
+        speakWisdom() {
+            super.drinkSake();
+            console.log("Happiness is not something far away. It is to be found neither in fame nor in popularity. When you live with integrity, your hearts begin to")
+        }
+    }
+
+    bob = new Ninja("Bob");
+    bob.sayName();
+    bob.showStats();
+    bob.drinkSake();
+    bob.showStats();
+
+    carl = new Ninja("Carl");
+    bob.punch(carl).punch(carl).punch(carl).kick(carl);
+    carl.showStats();
+
+    sup = 55;
+    carl.kick(sup);
+
+    armando = new Sensei("Armando");
+    armando.showStats();
+    armando.speakWisdom();
+    armando.showStats();
+</script>
+
+</html>
