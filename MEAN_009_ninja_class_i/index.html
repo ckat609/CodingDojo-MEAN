@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="mean_009_ninja_class_i.js"></script>
+    <title>MEAN 009: Ninja Class I</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var Ninja = function (name) {
+        var self = this;
+        self.name = name;
+        self.speed = 3;
+        self.strength = 3;
+        self.health = 100;
+
+        self.sayName = function () {
+            console.log(`My ninja name is ${self.name}!`);
+            return self;
+        }
+
+        self.showStats = function () {
+            console.log(`Name: ${self.name}`);
+            console.log(`Strength: ${self.strength}`);
+            console.log(`Speed: ${self.speed}`);
+            console.log(`Health: ${self.health}`);
+            return self;
+        }
+
+        self.drinkSnake = function () {
+            self.health += 10;
+            return self;
+        }
+
+    }
+
+    bob = new Ninja("Bob");
+    bob.sayName();
+    bob.showStats();
+    bob.drinkSnake();
+    bob.showStats();
+</script>
+
+</html>
