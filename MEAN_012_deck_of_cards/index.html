@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Card {
+        constructor(suit, value) {
+            let arr = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+            self = this;
+            this.suit = suit;
+            this.valueNum = value;
+            this.valueStr = arr[value - 1];
+        }
+
+        show() {
+            console.log(this.suit);
+            console.log(this.valueNum);
+            console.log(this.valueStr);
+        }
+    }
+    5 C 5
+    class Deck {
+        constructor() {
+            all() {
+
+            }
+        }
+
+
+    }
+
+    aCard = new Card("Clubs", 1);
+    aCard.show();
+</script>
+
+</html>
