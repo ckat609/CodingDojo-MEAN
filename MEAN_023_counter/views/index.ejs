@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>MEAN 023: Counter</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hello World!</h1>
+            <h3>You've visited this page <%= count %> times</h3>
+            <input id="butAdd" type="submit" value="Add 2">
+            <input id="butRes" type="submit" value="Reset">
+        </div>
+    </div>
+</body>
+<script>
+    $('#butAdd').click(function () {
+        window.location = '/add';
+    });
+    $('#butRes').click(function () {
+        window.location = '/reset';
+    });
+</script>
+
+</html>
