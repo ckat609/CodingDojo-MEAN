@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+    <title>MEAN 024: Survey Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Form Survey</h1>
+        <form action="/new" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="location">Dojo location</label>
+                <select class="form-control" name="location" id="location">
+                    <option value="Arlington">Arlington</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Montain View">Montain View</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Favorite language</label>
+                <select class="form-control" name="language" id="language">
+                    <option value="C">C</option>
+                    <option value="Java">Java</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                    <option value="Ruby">Ruby</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Favorite language</label>
+                <textarea class="form-control" name="comment" id="comment" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
