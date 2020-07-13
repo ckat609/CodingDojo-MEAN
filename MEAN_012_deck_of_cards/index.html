@@ -12,33 +12,81 @@
 </body>
 <script>
     class Card {
-        constructor(suit, value) {
-            let arr = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+        constructor(value) {
             self = this;
-            this.suit = suit;
-            this.valueNum = value;
-            this.valueStr = arr[value - 1];
+            this.id = value;
+            this.value = this.getValue();
+            this.card = this.getCard();
+            this.suit = this.getSuit();
+
+            return self;
+        }
+
+        getValue() {
+            let card = Math.ceil(this.id % 13)
+            if (card != 0) {
+                return card;
+            }
+            return 13;
+        }
+
+        getCard() {
+            let arrCards = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+            let card = Math.ceil(this.id % 13) - 1
+            if (card != -1) {
+                return arrCards[card];
+            }
+            return arrCards[12];
+        }
+
+        getSuit() {
+            let arrSuits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+            return arrSuits[Math.ceil(this.id / 13) - 1];
         }
 
         show() {
-            console.log(this.suit);
-            console.log(this.valueNum);
-            console.log(this.valueStr);
+            console.log(this.getValue());
+            console.log(this.getCard());
+            console.log(this.getSuit());
         }
     }
 
     class Deck {
         constructor() {
-            all() {
-
-            }
+            this.reset();
         }
 
+        reset() {
+            let arrDeck = [];
+            for (let i = 1; i <= 52; i++) {
+                let aCard = new Card(i);
+                arrDeck.push(aCard);
+            }
+            this.deck = arrDeck;
+            return arrDeck;
+        }
 
+        shuffle() {
+            let arrDec = this.deck;
+            for (let i = arrDec.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * i);
+                const temp = arrDec[i];
+                arrDec[i] = arrDec[j];
+                arrDec[j] = temp;
+            }
+            return arrDec;
+        }
     }
 
-    aCard = new Card("Clubs", 1);
-    aCard.show();
+    aCard = new Card(52);
+    console.log(aCard.getValue());
+    console.log(aCard.getCard());
+    console.log(aCard.getSuit());
+
+    aDeck = new Deck();
+    aDeck.shuffle();
+    aDeck.reset();
+    console.log(aDeck.deck);
 </script>
 
 </html>
