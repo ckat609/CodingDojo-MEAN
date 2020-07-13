@@ -1,0 +1,70 @@
+1.-
+use firstdb
+
+2.-
+db.createCollection('students')
+
+3.-
+({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+
+4.-
+db.students.insert({name:"Armando", state: "TX", lucky_number: 9, birthday: {month: 7, day: 8, year: 1978}})
+db.students.insert({name:"Ana", state: "FL", lucky_number: 13, birthday: {month: 6, day: 28, year: 1973}})
+db.students.insert({name: "Elvia", state: "IL", lucky_number: 5, birthday: {month: 3, day: 15, year: 1977}})
+db.students.insert({name:"Rab", state: "WA", lucky_number: 9, birthday: {month: 5, day: 3, year: 1985}})
+db.students.insert({name:"Oscar", state: "WA", lucky_number: 7, birthday: {month: 3, day: 30, year: 1988}})
+
+5.-
+db.students.find()
+
+6.-
+db.students.find({state: "WA"})
+
+7a.-
+db.students.find({lucky_number: {$gt: 7}})
+
+7b.-
+db.students.find({lucky_number: {$lte: 10}})
+
+7c.-
+db.students.find({lucky_number: {$gt: 3, $lt: 9}})
+
+8.-
+db.students.update({},{$push:{interests:{$each:["coding","brunch","mongoDB"]}}},{multi:true})
+
+9.-
+db.students.update({name: "Armando"}, {$push:{interests: "3d"}})
+db.students.update({name:"Ana"},{$push:{interests: "Troneques"}})
+db.students.update({name:"Elvia"},{$push:{interests:"intepretation"}})
+db.students.update({name: "Rab"},{$push:{interests: "python"}})
+db.students.update({name: "Oscar"},{$push:{interests:"jogging"}})
+
+10.-
+db.students.update({name: "Armando"}, {$push:{interests:"Taxes"}})
+
+11.-
+db.students.update({name:"Armando"},{$pull:{interests:"Taxes"}})
+
+12.-
+db.students.remove({state: "WA"})
+
+13.-
+db.students.remove({name: "Armando"}, true)
+
+14.-
+db.students.remove({lucky_number:{$gt: 5}}, true)
+
+15.-
+db.students.update({}, {$set:{belts: 0}}, {multi: true})
+
+16.-
+db.students.update({state: "WA"},{$inc:{belts: 1}},{multi:true})
+
+17.-
+db.students.update({}, {$rename:{belts: "belts_earned"}}, {multi: true})
+
+18.-
+db.students.update({}, {$unset:{lucky_number: ""}},{multi:true})
+
+19.-
+db.students.update({}, {$set: {updated_on: new Date()}}, {multi:true})
