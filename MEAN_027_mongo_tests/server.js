@@ -49,7 +49,10 @@ app.get('/', (req, res) => {
         .then(data => res.render('index', {
             users: data
         }))
-        .catch(err => res.json(err));
+        .catch(err => {
+            res.json(err)
+
+        });
 });
 
 app.post('/users', (req, res) => {
