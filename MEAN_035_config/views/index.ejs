@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+    <title>MEAN 028: Dojo Quotes</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Dojo quotes</h1>
+            <% if(messages.errors){ %>
+            <ul>
+                <% for (var msg of messages.errors){ %>
+                <li class="alert alert-danger"><%= msg %></li>
+                <% } %>
+            </ul>
+            <% } %>
+            <form action="/quotes" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="quote">Quote</label>
+                    <textarea class="form-control" name="quote" id="quote" cols="30" rows="10"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-xs-1">
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Add">
+                        </div>
+                    </div>
+                    <div class="col-xs-1">
+                        <a class="btn btn-success" href="/quotes">Skip</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
