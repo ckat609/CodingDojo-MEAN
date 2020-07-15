@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-Quote = new mongoose.model('Quote');
+const Quote = new mongoose.model('Quote');
 
 module.exports = function (app) {
     app.get('/', (req, res) => {
@@ -36,5 +35,4 @@ module.exports = function (app) {
                 res.redirect('/');
             });
     });
-
 }
