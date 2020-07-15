@@ -65,14 +65,12 @@ const Comment = mongoose.model('Comment', CommentSchema);
 app.get('/', (req, res) => {
     Message.find()
         .then(messages => {
-            console.log(messages.length);
             res.render('index', {
                 allmessages: messages
             });
         })
         .catch(err => {
             for (var key in err.errors) {
-                console.log(err.errors[key].message);
                 req.flash('happy', err.errors[key].message)
             }
             res.redirect('/');
@@ -82,12 +80,10 @@ app.get('/', (req, res) => {
 app.post('/create', (req, res) => {
     Message.create(req.body)
         .then(newMessage => {
-            console.log(newMessage);
             res.redirect('/');
         })
         .catch(err => {
             for (var key in err.errors) {
-                console.log(err.errors[key].message);
                 req.flash('happy', err.errors[key].message)
             }
             res.redirect('/');
@@ -97,7 +93,6 @@ app.post('/create', (req, res) => {
 app.post('/comments/create/:id', (req, res) => {
     Comment.create(req.body)
         .then(newComment => {
-            console.log(newComment);
             Message.update({
                     _id: req.params.id
                 }, {
@@ -110,7 +105,6 @@ app.post('/comments/create/:id', (req, res) => {
                 })
                 .catch(err => {
                     for (var key in err.errors) {
-                        console.log(err.errors[key].message);
                         req.flash('happy', err.errors[key].message)
                     }
                     res.redirect('/');
@@ -119,7 +113,6 @@ app.post('/comments/create/:id', (req, res) => {
         })
         .catch(err => {
             for (var key in err.errors) {
-                console.log(err.errors[key].message);
                 req.flash('happy', err.errors[key].message)
             }
             res.redirect('/');
