@@ -60,6 +60,9 @@ const UserSchema = new mongoose.Schema({
 const User = new mongoose.model('User', UserSchema);
 
 app.get('/', (req, res) => {
+    if ('user' in req.session) {
+        alert("YAY");
+    }
     res.render('index');
 });
 
@@ -82,13 +85,17 @@ app.post('/users/create', (req, res) => {
 
 app.post('/sessions/create', (req, res) => {
     User.findOne({
-            email: "z@z.com"
+            email: req.body.email
         })
         .then(user => {
-            console.log(req.body);
-            console.log(user);
-            console.log("YAY");
-            res.redirect('/');
+            if (user) {
+                req.session.user = user._id;
+                console.log(req.body);
+                console.log(user);
+                console.log("YAY");
+                W
+                res.redirect('/');
+            }
         })
         .catch(err => {
             console.log("NAY");

@@ -7,7 +7,6 @@ const {
     render
 } = require('ejs');
 
-
 mongoose.connect('mongodb://localhost/quotes', {
     useNewUrlParser: true
 });
@@ -30,21 +29,6 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-const QuoteSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 5
-    },
-    quote: {
-        type: String,
-        required: true,
-        minlength: 10
-    }
-});
-
-const Quote = mongoose.model('Quote', QuoteSchema);
-
-
+require('./models/quote.js')
 require('./config/routes')(app);
 app.listen(8000, () => console.log("Listening on port 8000"));
