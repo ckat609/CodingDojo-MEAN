@@ -29,6 +29,5 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-require('./models/quote.js')
 require('./config/routes')(app);
 app.listen(8000, () => console.log("Listening on port 8000"));
