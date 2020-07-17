@@ -12,9 +12,6 @@ mongoose.connect('mongodb://localhost/tasks', {
     useUnifiedTopology: true,
 });
 
-app.get('/', (req, res) => {
-
-});
 
 const TaskSchema = new mongoose.Schema({
     title: {
@@ -40,6 +37,9 @@ const Task = new mongoose.model('Task', TaskSchema);
 
 
 
+app.get('/', (req, res) => {
+    res.send("HELLO WORLD!");
+});
 
 app.get('/tasks', (req, res) => {
     Task.find()
