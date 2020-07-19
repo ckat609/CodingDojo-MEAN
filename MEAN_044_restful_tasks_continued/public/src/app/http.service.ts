@@ -18,10 +18,4 @@ export class HttpService {
     return this._http.get('/tasks');
   }
 
-  showTask(aTask) {
-    let tempObservable = this._http.get(`/tasks/${aTask}`);
-    tempObservable.subscribe(data => {
-      console.log(data);
-    });
-  }
 }

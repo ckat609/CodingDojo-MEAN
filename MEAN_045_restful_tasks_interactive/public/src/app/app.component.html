@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="center">
+    <h1>All tasks</h1>
+    <button (click)="getTasksFromService()">Get all tasks</button>
+  </div>
+
+
+  <ul *ngIf='tasks.length > 0'>
+    <li *ngFor='let task of tasks'>
+      <p>
+        <b>{{task.title}} (completed: {{task.completed}})</b>
+        <button (click)='showTaskFromService(task._id)'>Get task</button>
+      </p>
+    </li>
+  </ul>
+
+  <p>{{aTask.description}}</p>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
