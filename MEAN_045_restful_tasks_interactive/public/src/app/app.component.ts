@@ -8,21 +8,28 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit {
   title = 'public';
-  myVar = "All the tasks";
-  tasks = [{ hello: 'hello' }];
+  tasks = [];
+  aTask = {};
 
-  constructor(private _httpService: HttpService) { }
+  constructor(private __httpService: HttpService) { }
 
   ngOnInit() {
-    this.getTasksFromService();
-    // this._http.showTask("5f11ff1101cf717c0b5d7d13");
+    // this.getTasksFromService();
   }
 
   getTasksFromService() {
-    let observable = this._httpService.getTasks();
+    let observable = this.__httpService.getTasks();
     observable.subscribe(data => {
-      console.log("WE GOT DATA: ", data['tasks']);
+      console.log(data['tasks']);
       this.tasks = data['tasks'];
+    });
+  }
+
+  showTaskFromService(id: string) {
+    let observable = this.__httpService.showTask(id);
+    observable.subscribe(data => {
+      console.log(data);
+      this.aTask = data;
     });
   }
 }
