@@ -1,5 +1,6 @@
 function fizzbuzz(aNumber) {
     var text = "";
+    var fullText = "";
     for (i = 1; i <= aNumber; i++) {
         if (i % 3 == 0) {
             text += "Fizz";
@@ -13,9 +14,16 @@ function fizzbuzz(aNumber) {
         if (text == "") {
             text = i;
         }
-        console.log(text);
+
+        if (i != aNumber) {
+            fullText += text + ", ";
+        } else {
+            fullText += text;
+        }
+
         text = "";
     }
+    return fullText;
 }
 
-fizzbuzz(100);
+console.log(fizzbuzz(100));
