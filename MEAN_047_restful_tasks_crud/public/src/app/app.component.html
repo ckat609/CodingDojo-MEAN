@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous">
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Add a task</h1>
+    <div>
+      <form (submit)='addTaskFromService()'>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" type="text" name="title" [(ngModel)]='newTask.title'>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input class="form-control" type="text" name="description" [(ngModel)]='newTask.description'>
+        </div>
+        <div class="form-group">
+          <input class="btn btn-primary" type="submit" value="Add task">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf='taskToEdit'>
+    <h1>Edit a task</h1>
+    <form (submit)='updateTaskFromService(taskToEdit._id)'>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" [(ngModel)]='taskToEdit.title'>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" type="text" name="description" [(ngModel)]='taskToEdit.description'>
+      </div>
+      <div class="form-group">
+        <input class="form-check-input" type="checkbox" name="completed" [(ngModel)]='taskToEdit.completed'>
+        <label class="form-check-label" for="completed">Completed</label>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Update task">
+      </div>
+    </form>
+  </div>
+
+  <h1>All tasks</h1>
+  <div *ngIf='tasks.length > 0'>
+    <div class="row" *ngFor='let task of tasks'>
+      <div class="col">
+        <p><b>{{task.title}} - Completed: {{task.completed}}</b></p>
+        <p>{{task.description}}</p>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" (click)='showTaskFromService(task._id)'>EDIT</button>
+        <button class="btn btn-danger" (click)='delTaskFromService(task._id)'>DELETE</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

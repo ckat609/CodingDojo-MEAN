@@ -1,0 +1,9 @@
+db.tasks.insert({"description":"Wake up, get out of bed, shower, get dressed, brush teeth, drink coffee, sit at desk, power on computer, start working","completed":true,"title":"Start the day"})
+db.tasks.insert({"description":"Open Blender, open project, start modeling, uv unwrap, texture models, light the scene, render","completed":true, "title":"Work"})
+db.tasks.insert({"description":"Buy milk, cereal, eggs, vegetables, chicken, beef, soup, soda, crackers","completed":false,"title":"Groceries"})
+db.tasks.insert({"description":"Put on workout clothes, put on running shoes, grab mp3 player, run like the wind!","completed":false,"title":"Go out for a run"})
+db.tasks.insert({"description":"npm install express, session, mongoose, brypt... then ng new public, ng g s http... then some more crap.  This shit is hard!","completed":false,"title":"Install Angular"})
+db.tasks.insert({"description":"Add httpservice to providers and httpclientmodule module to app.module.tx, then add httpservice to app.component.ts, then add httpclient to http.service.ts.  Add methods to app.component.ts to get methods from the service.","completed":false,"title":"Make Angular run"})
+
+
+
