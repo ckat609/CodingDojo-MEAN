@@ -35,7 +35,7 @@ function userLanguages(users) {
         aString += `${users[i].fname} ${users[i].lname} knows `;
         for (let j = 0; j < users[i].languages.length; j++) {
             if (j == users[i].languages.length - 1) {
-                aString += `${users[i].languages[j]}.\n`;
+                aString += `and ${users[i].languages[j]}.\n`;
             } else {
                 aString += `${users[i].languages[j]}, `;
             }

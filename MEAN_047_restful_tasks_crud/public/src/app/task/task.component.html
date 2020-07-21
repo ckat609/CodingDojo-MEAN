@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+    <p><b>{{oneTask.title}} - Completed: {{oneTask.completed}}</b></p>
+    <p>{{oneTask.description}}</p>
+
+  </div>
+  <div class="col">
+    <button class="btn btn-primary">EDIT</button>
+    <button class="btn btn-danger" (click)='delTaskFromService(oneTask._id)'>DELETE</button>
+  </div>
+</div>
