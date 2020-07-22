@@ -1,0 +1,24 @@
+<div class="row">
+  <div class=" colCake">
+    <img src="{{oneCake.image}}" class="oneCake img-thumbnail" alt="cake">
+  </div>
+  <div class=" colComments">
+    <h1>Baked by {{oneCake.baker}} ({{oneCakeRating}})</h1>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Comment</th>
+          <th>Rating</th>
+          <th>Dated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let comment of oneCake.comments'>
+          <td>{{comment.comment}}</td>
+          <td>{{comment.rating}}</td>
+          <td>{{comment.createdAt.toLocaleString()}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

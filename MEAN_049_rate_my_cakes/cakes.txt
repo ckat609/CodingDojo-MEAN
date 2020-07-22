@@ -1,0 +1,12 @@
+db.cakes.insert({baker: "Armando Tello", image: "https://livforcake.com/wp-content/uploads/2017/06/vanilla-cake-thumb.jpg"})
+db.cakes.insert({baker: "Rebecca Reitzammer", image: "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/16714-birthday-cake-600x600.jpg?ext=.jpg"})
+db.cakes.insert({baker: "Garrett Bass", image: "https://www.handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"})
+db.cakes.insert({baker: "Oscar Umanzor", image: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2F1542062283%2Fchocolate-and-cream-layer-cake-1812-cover.jpg%3Fitok%3DR_xDiShk"})
+db.cakes.insert({baker: "Dany Verga", image: "https://www.lifeloveandsugar.com/wp-content/uploads/2020/01/Chocolate-Covered-Strawberry-Layer-Cake3.jpg"})
+db.cakes.insert({baker: "Myriam Vazquez", image: "https://cakewhiz.com/wp-content/uploads/2020/02/Kids-Chocolate-Birthday-Cake-Recipe.jpg"})
+
+db.comments.insert({comment:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula dui purus, nec aliquet lacus sagittis sed. Aenean eleifend suscipit maximus. Proin mollis nulla est, vel scelerisque ante convallis sed. Nam accumsan auctor elit non convallis. Fusce at feugiat justo. Donec eu turpis neque. Nunc sed fringilla est.", rating: 3})
+db.comments.insert({comment:"Sed sed vestibulum est, eget elementum turpis. Nullam mattis, arcu eget pretium iaculis, sapien arcu luctus nisl, tempor faucibus est enim ac nunc. Duis auctor ipsum dolor, et bibendum ante auctor quis.", rating: 4})
+db.comments.insert({comment:"Maecenas finibus diam id dapibus molestie. Nunc tristique dignissim nunc, a tincidunt eros sollicitudin ac.", rating: 4})
+db.comments.insert({comment:"Maecenas finibus diam id dapibus molestie. Nunc tristique dignissim nunc, a tincidunt eros sollicitudin ac.", rating: 4})
+db.comments.insert({comment:"Maecenas finibus diam id dapibus molestie. Nunc tristique dignissim nunc, a tincidunt eros sollicitudin ac.", rating: 4})

@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
-mongoose.connect('mongodb://localhost/tasks', {
+mongoose.connect("mongodb://localhost/cakes", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -12,8 +12,7 @@ app.use(express.urlencoded({
 }));
 
 app.use(express.json());
-app.use(express.static(__dirname + '/public/dist/public'));
-
+app.use(express.static(__dirname + "/public/dist/public"));
 
 require('./server/config/routes')(app);
 
