@@ -33,8 +33,10 @@ export class AppComponent implements OnInit {
   addCakeFromService() {
     let observable = this._httpService.addCake(this.newCake);
     observable.subscribe(data => {
+      console.log("COMPONENT");
       console.log(data);
     });
+    this.getCakesFromService();
   }
 
   addCommentFromService(e, id) {
@@ -58,12 +60,16 @@ export class AppComponent implements OnInit {
     let observable = this._httpService.showCake(id);
     observable.subscribe(data => {
 
+      //@ts-ignore
       console.log(data.comments.length);
       let sum = 0;
+      //@ts-ignore
       for (let i = 0; i < data.comments.length; i++) {
+        //@ts-ignore
         sum += data.comments[i].rating;
       }
 
+      //@ts-ignore
       this.oneCakeRating = sum / data.comments.length;
       this.oneCake = data;
     });

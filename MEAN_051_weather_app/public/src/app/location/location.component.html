@@ -1,0 +1,23 @@
+<div *ngIf='location'>
+  <h1>{{location.name}}</h1>
+  <div class="row">
+    <div class="col">
+      <img src="http://openweathermap.org/img/wn/{{location.weather[0].icon}}@2x.png" alt="icon">
+      <hr>
+      <h2>Temperature</h2>
+      <h1>{{location.main.temp}}</h1>
+      <h6>Feels like {{location.main.feels_like}}</h6>
+      <li>Max: {{location.main.temp_max}}</li>
+      <li>Min: {{location.main.temp_min}}</li>
+      <hr>
+      <h2>Wind</h2>
+      <li>Deg: {{location.main.temp_max}}</li>
+      <li>Speed: {{location.main.temp_min}}</li>
+      <h2>Humidity: {{location.main.humidity}}</h2>
+      <h2>Pressure: {{location.main.pressure}}</h2>
+    </div>
+    <div class="col">
+      <img class="img-thumbnail" src="{{locationImage(location.name)}}" alt="icon">
+    </div>
+  </div>
+</div>

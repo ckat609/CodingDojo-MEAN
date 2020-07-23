@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Weather API</h1>
+    <hr>
+    <h3>Select a dojo location</h3>
+    <button class="btn btn-primary" [routerLink]="['/burbank/ca']">Burbank, CA</button>
+    <button class="btn btn-primary" [routerLink]="['/chicago/il']">Chicago, IL</button>
+    <button class="btn btn-primary" [routerLink]="['/dallas/tx']">Dallas, TX</button>
+    <button class="btn btn-primary" [routerLink]="['/san jose/ca']">San Jose, CA</button>
+    <button class="btn btn-primary" [routerLink]="['/seattle/wa']">Seattle, WA</button>
+    <button class="btn btn-primary" [routerLink]="['/washington/dc']">Washington, DC</button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

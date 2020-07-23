@@ -7,7 +7,7 @@ module.exports = function (app) {
         Cakes.index(req, res);
     });
 
-    app.post('/cakes/create', (req, res) => {
+    app.post('/cakes', (req, res) => {
         Cakes.create(req, res);
     });
 
