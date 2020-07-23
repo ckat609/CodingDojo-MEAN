@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class HttpService {
   };
 
   addCake(cake) {
-    return this._httpClient.post('/create', cake);
+    console.log("SERVICE");
+    return this._httpClient.post('/cakes', cake);
   };
 
   addComment(id, comment) {
