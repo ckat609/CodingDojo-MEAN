@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>Favorite authors</h1>
+  <hr>
+  <button class="btn btn-primary" [routerLink]="['/']">Home</button>
+</div>
+
+<h1>{{oneAuthor.name}}</h1>
+<form (submit)="updateAuthorFromService(oneAuthor._id)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" [(ngModel)]="oneAuthor.name">
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Update author">
+  </div>
+</form>

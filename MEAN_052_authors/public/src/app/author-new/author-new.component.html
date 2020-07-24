@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1>Favorite authors</h1>
+  <hr>
+  <button class="btn btn-primary" [routerLink]="['/']">Home</button>
+</div>
+
+<form (submit)='addAuthorFromService()'>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" [(ngModel)]='newAuthor.name'>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Add author">
+  </div>
+</form>
