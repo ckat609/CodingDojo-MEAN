@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Anonymous Notes</h1>
+    <ul *ngIf="dbErrors.length>0">
+      <li class="alert alert-danger" *ngFor="let err of dbErrors">{{err}}</li>
+    </ul>
+  </div>
+  <form (submit)="addNoteFromService()">
+    <div class="form-group">
+      <label for="text">Note</label>
+      <input class="form-control" type="text" name="text" [(ngModel)]="newNote.text">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-warning" type="submit">Add note</button>
+    </div>
+  </form>
+  <app-notes [notes]="notes"></app-notes>
+  <router-outlet></router-outlet>
+</div>
