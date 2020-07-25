@@ -1,0 +1,5 @@
+db.notes.insert({text: "Hello world, how are you?"})
+db.notes.insert({text: "I feel the frustration!"})
+db.notes.insert({text: "MEAN sucks ass!"})
+db.notes.insert({text: "OMG... yay!"})
+db.notes.insert({text: "How do you feel about...?"})

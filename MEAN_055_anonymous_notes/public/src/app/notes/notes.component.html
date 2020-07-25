@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Note</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let note of notes">
+      <td>{{note.text}}</td>
+      <td>{{strftime(note.createdAt)}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteNoteFromService(note._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
