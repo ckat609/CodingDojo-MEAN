@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1>Quote ranks</h1>
+  <hr>
+  <button class="btn btn-primary" [routerLink]="['/new']">Add author</button>
+</div>
+
+<h3>We have quotes by</h3>
+<table *ngIf='authors' class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Author</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let author of authors'>
+      <td>{{author.name}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/author',author._id]">Quotes</button>
+        <button class="btn btn-primary" [routerLink]="['/edit',author._id]">Edit</button>
+        <button class="btn btn-danger" (click)="deleteAuthorFromService(author._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,3 @@
+db.authors.insert({name: "Armando Tello"})
+db.authors.insert({name: "Rebecca Reitzammer"})
+db.authors.insert({name: "Garret Bass"})

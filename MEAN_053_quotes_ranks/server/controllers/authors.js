@@ -7,7 +7,6 @@ module.exports = {
     index: function (req, res) {
         Author.find()
             .then(data => {
-                console.log(data);
                 res.json({
                     authors: data
                 });
@@ -32,15 +31,20 @@ module.exports = {
     },
 
     update: function (req, res) {
-        let a = Author.findById(req.params.id)
-        console.log(a);
-        Author.updateOne({
-                _id: req.params.id
-            }, {
-                name: req.body.name
-            })
+        Author.findById(
+                req.body._id
+            )
             .then(data => {
-                res.json(data);
+                author = data;
+                author.name = req.body.name;
+                author.quotes = req.body.quotes;
+                author.save()
+                    .then(data => {
+                        res.json(data)
+                    })
+                    .catch(err => {
+                        res.json(err)
+                    });
             })
             .catch(err => res.json(err));
     },
@@ -49,7 +53,13 @@ module.exports = {
         Author.deleteOne({
                 _id: req.params.id
             })
-            .then(data => {})
+            .then(data => {
+                res.json(err)
+            })
             .catch(err => res.json(err));
-    }
+    },
+
+    upvote: function (req, res) {
+        Author.updateOne
+    },
 }

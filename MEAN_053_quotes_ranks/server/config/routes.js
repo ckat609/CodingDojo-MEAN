@@ -1,5 +1,6 @@
 const path = require('path');
-const Authors = require('./../controllers/authors')
+const Authors = require('./../controllers/authors');
+const Quotes = require('./../controllers/quotes');
 
 module.exports = function (app) {
     app.get('/', (req, res) => {});
@@ -22,6 +23,10 @@ module.exports = function (app) {
 
     app.delete('/authors/:id/delete', (req, res) => {
         Authors.delete(req, res);
+    });
+
+    app.patch('/quotes/upvote/:id', (req, res) => {
+        Authors.upvote(req, res);
     });
 
     app.all("*", (req, res, next) => {

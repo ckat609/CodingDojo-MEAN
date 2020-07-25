@@ -1,0 +1,29 @@
+<div class="jumbotron">
+
+  <h1>Quote ranks</h1>
+  <hr>
+  <button class="btn btn-primary" [routerLink]="['/quotes',oneAuthor._id]">Add quote</button>
+  <button class="btn btn-primary" [routerLink]="['/']">Home</button>
+</div>
+<h1>{{oneAuthor.name}}'s quotes</h1>
+<table *ngIf='oneAuthor.quotes' class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Quote</th>
+      <th>Votes</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let quote of oneAuthor.quotes;let indexOfelement=index;'>
+      <td>{{quote.text}}</td>
+      <td>{{quote.rating}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="voteFromService(quote,1)">+</button>
+        <button class="btn btn-primary" (click)="voteFromService(quote,-1)">-</button>
+        <button class="btn btn-primary" [routerLink]="['/quotes', indexOfelement, 'edit', oneAuthor._id]">Edit</button>
+        <button class="btn btn-danger" (click)="deleteQuoteFromService(indexOfelement)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
