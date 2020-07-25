@@ -9,12 +9,15 @@ const AuthorSchema = new mongoose.Schema({
         required: [true, "The name is required."],
         minlength: [3, "The name must be at least 2 characters long."]
     },
-    quotes: [QuoteSchema],
-
-}, {
-    timestamps: true
+    quotes: [{
+        text: {
+            type: String,
+        },
+        rating: {
+            type: Number,
+        }
+    }]
 })
-
 const Author = new mongoose.model('Author', AuthorSchema);
 
 module.exports = {
