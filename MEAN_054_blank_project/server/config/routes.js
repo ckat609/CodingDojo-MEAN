@@ -1,5 +1,5 @@
 const path = require('path');
-const Controllers = require('./../controllers/controllers');
+const Generics = require('./../controllers/generics');
 
 module.exports = function (app) {
     app.get('/', (req, res) => {});

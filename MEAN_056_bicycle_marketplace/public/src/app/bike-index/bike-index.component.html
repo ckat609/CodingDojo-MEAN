@@ -1,0 +1,29 @@
+<h1>Bike of the day</h1>
+<hr>
+<!-- <app-bike-show [aBikeId]='getRandomBike()'></app-bike-show> -->
+<hr>
+<div class="card mb-2" *ngFor='let aBike of allBikes'>
+  <div class="card-header text-white bg-dark">{{aBike.title}}</div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col col-sm-4">
+          <img class="img-thumbnail bike" src="{{aBike.image}}" alt="bike">
+        </div>
+        <div class="col col-sm-6">
+          <h2>{{aBike.title}}</h2>
+          <p>{{aBike.description}}</p>
+        </div>
+        <div class="col col-sm-2">
+          <h1>${{aBike.price}}</h1>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-warning mb-2" [routerLink]="['/bikes', aBike._id, 'edit']">Edit</button>
+              <button class="btn btn-danger mb-2" (click)='deleteBikeFromService(aBike._id)'>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

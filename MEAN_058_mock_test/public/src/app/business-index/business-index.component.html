@@ -1,0 +1,25 @@
+<div *ngIf='allBusinesses'>
+  <div class="card mb-2" *ngFor='let b of allBusinesses'>
+    <div class="card-header bg-light mb-3">{{b.name}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col col-sm-10">
+          <h3 class="card-title"><a routerLink="/show/{{b._id}}">{{b.name}}</a></h3>
+          <h5 class=" card-title">{{b.address}}</h5>
+          <p class="card-text">{{b.description}}</p>
+        </div>
+        <div class="col col-sm-2">
+          <div class="form-group">
+            <button class="btn btn-success btn-fixed" routerLink="/show/{{b._id}}">Review</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-warning btn-fixed" routerLink="/edit/{{b._id}}">Edit</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-danger btn-fixed" (click)="deleteBusinessFromService(b._id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
