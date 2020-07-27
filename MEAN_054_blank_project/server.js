@@ -8,7 +8,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-mongoose.connect('mongodb://localhost/adb', {
+mongoose.connect('mongodb://localhost/generic', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

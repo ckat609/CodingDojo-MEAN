@@ -1,0 +1,13 @@
+<div class="row" *ngIf="aBike">
+  <div class="col col-sm-4">
+    <img class="img-thumbnail bike" src="{{aBike.image}}" alt="bike">
+  </div>
+  <div class="col col-sm-6">
+    <h2>{{aBike.title}}</h2>
+    <p>{{aBike.description}}</p>
+  </div>
+  <div class="col col-sm-2">
+    <h1>${{aBike.price}}</h1>
+    <h6>{{aBike.location}}</h6>
+  </div>
+</div>

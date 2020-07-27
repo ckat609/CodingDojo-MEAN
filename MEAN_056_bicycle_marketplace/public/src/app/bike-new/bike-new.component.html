@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col col-sm-4">
+    <h1>Add Bike:</h1>
+    <h1>{{aBike.title}}</h1>
+    <img src="{{aBike.image}}" class="img-thumbnail bikes" alt="bike">
+
+    <ul *ngIf="dbErrors">
+      <li *ngFor="let error of dbErrors" class="alert alert-danger">{{error}}</li>
+    </ul>
+  </div>
+  <div class="col col-sm-8">
+    <form (submit)='addBikeFromService()'>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" [(ngModel)]="aBike.title">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input class="form-control" type="text" name="image" [(ngModel)]="aBike.image">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control" type="text" name="description" [(ngModel)]="aBike.description">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control" type="text" name="location" [(ngModel)]="aBike.location">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input class="form-control" type="text" name="price" [(ngModel)]="aBike.price">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-outline-success" type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
