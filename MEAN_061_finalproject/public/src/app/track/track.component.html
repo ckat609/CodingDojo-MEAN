@@ -1,0 +1,16 @@
+<table *ngIf="playlist" class="table">
+  <thead>
+    <tr>
+      <th>Track</th>
+      <th>Artist</th>
+      <th>Album</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let track of playlist">
+      <td>{{track.track.name}}</td>
+      <td>{{track.track.artists[0].name}}</td>
+      <td>{{track.track.album.name}}</td>
+    </tr>
+  </tbody>
+</table>

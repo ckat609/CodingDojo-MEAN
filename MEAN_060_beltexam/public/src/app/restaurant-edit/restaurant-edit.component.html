@@ -1,0 +1,25 @@
+<div *ngIf="enableEdit">TRUE</div>
+<h1>Edit restaurant</h1>
+<ul *ngIf="dbErrors.length>0">
+  <li *ngFor="let error of dbErrors" class="alert alert-danger">{{error}}</li>
+</ul>
+<hr>
+<form (submit)='updateRestaurantFromService()'>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" [(ngModel)]="aRestaurant.name">
+  </div>
+  <div class="form-group">
+    <label for="cuisine">Cuisine</label>
+    <input class="form-control" type="text" name="cuisine" [(ngModel)]="aRestaurant.cuisine">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" name="description" cols="30" rows="3" [(ngModel)]="aRestaurant.description"></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success btn-fixed">Update</button>
+  </div>
+</form>
+<button *ngIf="enableEdit" class="btn btn-danger btn-fixed" (click)="runSetEnableEdit()">Cancel</button>
+<button *ngIf="!enableEdit" class="btn btn-danger btn-fixed" routerLink="/">Cancel</button>

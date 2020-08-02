@@ -1,0 +1,13 @@
+  <p *ngIf="location" class="big-city">{{location.name}}</p>
+  <div *ngIf='location'>
+    <div class="row">
+      <div class="col text-center">
+        <img src="http://openweathermap.org/img/wn/{{location.weather[0].icon}}@2x.png" alt="icon" class="avatar">
+        <p class="big-temp">{{location.main.temp | number:'1.0-0'}}°</p>
+        <p class="small-temp">MAX: {{location.main.temp_max | number:'1.0-0'}}° MIN: {{location.main.temp_min | number:'1.0-0'}}°</p>
+        <p class="small-temp">Feels like {{location.main.feels_like | number:'1.0-0'}}°</p>
+        <p class="med-temp">{{location.weather[0].main}}</p>
+        <p class="tiny-temp">{{location.weather[0].description.toUpperCase()}}</p>
+      </div>
+    </div>
+  </div>

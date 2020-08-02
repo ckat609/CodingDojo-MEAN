@@ -1,0 +1,27 @@
+.btn-fixed {
+  width: 150px;
+}
+
+//# is set if the form control is valid.
+input.ng-valid {
+  background-color: palegreen;
+}
+
+//# is set if the form control is invalid.
+input.ng-invalid {
+  background-color: lightsalmon;
+}
+
+//# is set if the form control has not been changed and pristine.
+input.ng-pristine {}
+
+//# is set if the form control has been changed and dirty.
+input.ng-dirty {}
+
+//# is set if the form control has been visited.
+input.ng-touched {}
+
+//# is set if the form control has not been visited.
+input.ng-untouched {
+  background-color: white;
+}
