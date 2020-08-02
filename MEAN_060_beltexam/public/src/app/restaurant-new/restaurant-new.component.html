@@ -1,0 +1,26 @@
+<h1>Add rsetaurant</h1>
+<ul *ngIf="dbErrors.length>0">
+  <li *ngFor="let error of dbErrors" class="alert alert-danger">{{error}}</li>
+</ul>
+<hr>
+<form (submit)='addRestaurantFromService()'>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" [(ngModel)]="aRestaurant.name" required minlength="3" #name="ngModel">
+    <p *ngIf="name.errors">The restaurant's name must be at least 3 characters long.</p>
+  </div>
+  <div class="form-group">
+    <label for="address">Cuisine</label>
+    <input class="form-control" type="text" name="cuisine" [(ngModel)]="aRestaurant.cuisine" required minlength="3" #cuisine="ngModel">
+    <p *ngIf="cuisine.errors">The cuisine's name must be at least 3 characters long.</p>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" name="description" cols="30" rows="3" [(ngModel)]="aRestaurant.description" required minlength="5" #description="ngModel"></textarea>
+    <p *ngIf="description.errors">The description must be at least 5 characters long.</p>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success btn-fixed">Add</button>
+  </div>
+</form>
+<button *ngIf="!enableEdit" class="btn btn-danger btn-fixed" routerLink="/">Cancel</button>

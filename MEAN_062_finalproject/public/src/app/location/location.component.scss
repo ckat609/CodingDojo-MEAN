@@ -1,0 +1,57 @@
+.nothing {
+  padding: 0;
+  margin: 0;
+}
+
+.big-temp {
+  color: #ed145b;
+  font-size: 8em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  text-shadow: -4px 4px 10px #aaa;
+}
+
+.small-temp {
+  font-size: 1em;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.med-temp {
+  font-size: 3em;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.tiny-temp {
+  font-size: 1em;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.big-city {
+  color: white;
+  text-shadow: black;
+  font-size: 3em;
+  text-shadow: -2px 2px 6px #000000;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  // background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-color: #ed145b;
+  opacity: p;
+  border-radius: 125px;
+  border: 10px solid white;
+}
+
+.weather {
+  width: 300px;
+}

@@ -1,0 +1,31 @@
+<app-restaurant-edit *ngIf="enableEdit" [enableEdit]="enableEdit" [aRestaurantId]="aRestaurantId" (setEnableEdit)="setRestaurantId(0)" (resetRestaurants)="getRestaurantsFromService()">
+</app-restaurant-edit>
+
+<div *ngIf='allRestaurants'>
+  <div class="card mb-2" *ngFor='let r of allRestaurants'>
+    <div class="card-header text-white bg-dark mb-3">{{r.name}}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col col-sm-10">
+          <h3 class="card-title"><a routerLink="/show/{{r._id}}">{{r.name}}</a> ({{(r.revcount)?r.totalstars/r.revcount:0 |  number:'1.1-5'}})</h3>
+          <h5 class=" card-title">{{r.cuisine}}</h5>
+          <p class="card-text">{{r.description}}</p>
+        </div>
+        <div class="col col-sm-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-fixed" routerLink="/show/{{r._id}}">Read reviews</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-fixed" routerLink="/edit/{{r._id}}">Edit</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-warning btn-fixed" (click)="setRestaurantId(r._id)">Edit (nested)</button>
+          </div>
+          <div class="form-group" *ngIf="checkSeconds(r.createdAt)">
+            <button class="btn btn-danger btn-fixed" (click)="deleteBusinessFromService(r._id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
